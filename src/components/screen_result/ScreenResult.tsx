@@ -1,13 +1,10 @@
+import { ScreenResultProps } from "../../constants/types/components_props/types"
 
-
-export const ScreenResult = ({copy}:any) => {
-
-
-    
+export const ScreenResult = ({ feedbackMessage }: ScreenResultProps) => {
 
     return (
       
-        <div>{copy}</div>
+        <div>{feedbackMessage}</div>
         
     )
     

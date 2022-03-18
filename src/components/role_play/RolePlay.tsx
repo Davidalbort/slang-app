@@ -1,6 +1,6 @@
+import { RolePlayProps } from "../../constants/types/components_props/types"
 
-
-export const RolePlay = ({level, points}:any) => {
+export const RolePlay = ({level, points}: RolePlayProps) => {
 
     return (
     
