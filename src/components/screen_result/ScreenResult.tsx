@@ -7,6 +7,7 @@ export const ScreenResult = ({ feedbackMessage }: ScreenResultProps) => {
       
         <StyledScreenResult>
 
+            <h2>Information</h2>
             {feedbackMessage}
 
         </StyledScreenResult>

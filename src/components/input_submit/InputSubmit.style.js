@@ -20,6 +20,7 @@ button {
     vertical-align: middle;
     border: solid 2px #fff;
     border-radius: 100px;
+    cursor: pointer;
 
     &:hover {
         background: #055ea8;

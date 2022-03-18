@@ -17,7 +17,7 @@ function App() {
   const [exerciseId, setExerciseId] = useRecoilState<number>(exerciseIdState)
   const [exerciseLetterPool, setExerciseLetterPool] = useRecoilState<string[]>(exerciseLetterPoolState)
   const [answer, setAnswer] = useState<string>('')
-  const initialFeedBack = `Play and listen the audio from below, then type the correct word, using the given letters`
+  const initialFeedBack = `* Play and listen the audio from below, then type the correct word, using the given letters`
   const [answerFeedback, setAnswerFeedback] = useState<string>(initialFeedBack)
   const [questionNumber, setQuestionNumber] = useState<number>(1)
   const [totalPoints, setTotalPoints] = useState<number>(0)
@@ -40,14 +40,24 @@ function App() {
   const validateAnswer = (submitedWord: string, isCorrect: boolean): void => {
 
     if (isCorrect) {
-      setTotalPoints(totalPoints + 500)
+
       setAnswerFeedback(`The answer you submited was correct ${submitedWord} was the hidden word`)
-      setTimeout(() => {setAnswerFeedback(initialFeedBack)}, 4000)
+
+      setTimeout(() => {
+        setAnswerFeedback(initialFeedBack)
+        setTotalPoints(totalPoints + 500)
+      }, 4000)
+
     }
     else {
-      setTotalPoints(totalPoints + 200)
+
       setAnswerFeedback(`The answer you submited was incorrect ${submitedWord} wasn't the hidden word`)
-      setTimeout(() => {setAnswerFeedback(initialFeedBack)}, 4000)
+
+      setTimeout(() => {
+        setAnswerFeedback(initialFeedBack)
+        setTotalPoints(totalPoints + 200)
+      }, 4000)
+
     }
 
   }
@@ -57,8 +67,7 @@ function App() {
     const response = await _postSlangServiceData({ id: exerciseId, answer })
 
     validateAnswer(answer, response.correct)
-    
-    setQuestionNumber(questionNumber + 1)
+    setTimeout(() => {setQuestionNumber(questionNumber + 1)}, 4000)
 
   } 
 
@@ -67,7 +76,7 @@ function App() {
 
     <StyledApp>
 
-      <img src={logo} alt='slang' />
+      <a href="https://slangapp.com/"><img src={logo} alt='slang'/></a>
       <RolePlay level={questionNumber} points={totalPoints} />
       <ScreenResult feedbackMessage={ answerFeedback }/>
       <ReactAudioPlayer src={exerciseAudioUrl} controls />

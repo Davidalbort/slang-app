@@ -8,7 +8,7 @@ export const LetterPool = ({unorderedLetters}: LetterPoolProps) => {
 
         <StyledLetterPool>
       
-            {unorderedLetters}
+            {unorderedLetters}?
             
         </StyledLetterPool>
         

@@ -2,6 +2,24 @@ import styled from 'styled-components'
 
 export const StyledScreenResult = styled.div`
 
-margin: 30px 0px;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 30px;
+
+    h2 {
+        font-size: 22px;
+        font-weight: bold;
+        text-decoration: underline;
+
+    }
+
+    .checked {
+
+        &::before {
+            content: "\\2713"
+        }
+
+    }
 
 `;
