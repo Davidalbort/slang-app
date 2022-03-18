@@ -12,4 +12,4 @@ const SLANG_SERVICE = new ApiCore({
   
 export const _getSlangServiceData = async () => await SERVICE_OBJECT.getAllData(SLANG_SERVICE)
 
-export const _postSlangServiceData = async (userAnswer:any) => await SERVICE_OBJECT.post(SLANG_SERVICE, userAnswer)
+export const _postSlangServiceData = async (userAnswer:object) => await SERVICE_OBJECT.post(SLANG_SERVICE, userAnswer)
