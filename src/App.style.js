@@ -6,7 +6,7 @@ display: grid;
 max-width: 900px;
 min-width: 295px;
 place-items: center;
-margin: 128px 8px;
+margin: 90px 8px;
 padding: 15px;
 background-color: #0577d6;
 color: #fff;
@@ -47,6 +47,7 @@ text-align: center;
         border-radius: 46px;
 
         p {
+            margin-top: 12px;
             margin-bottom: 8px;
         }
     }

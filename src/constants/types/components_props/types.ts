@@ -9,7 +9,9 @@ export type InputSubmitProps = {
 } 
 
 export type ScreenResultProps = {
-    feedbackMessage: string
+    feedbackMessage: string,
+    isCorrectAnswer?: boolean | undefined,
+    level: number
 }
 
 export type LetterPoolProps = {

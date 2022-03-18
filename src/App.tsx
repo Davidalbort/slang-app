@@ -20,6 +20,7 @@ function App() {
   const initialFeedBack = `• Play and listen the audio from below, then type the correct word, using the given letters`
   const laterFeedBack = `• NEW WORD !!! Play and listen the audio from below, then type the correct word, using the given letters`
   const [answerFeedback, setAnswerFeedback] = useState<string>(initialFeedBack)
+  const [correctAnswer, setCorrectAnswer] = useState<boolean>()
   const [questionNumber, setQuestionNumber] = useState<number>(1)
   const [totalPoints, setTotalPoints] = useState<number>(0)
 
@@ -42,7 +43,9 @@ function App() {
 
     if (isCorrect) {
 
-      setAnswerFeedback(`The answer you submited was correct ${submitedWord} was the hidden word`)
+      setCorrectAnswer(isCorrect)
+      setAnswerFeedback(`The answer you submited was correct "${submitedWord}" was the hidden word`)
+
 
       setTimeout(() => {
         setAnswerFeedback(laterFeedBack)
@@ -52,7 +55,9 @@ function App() {
     }
     else {
 
-      setAnswerFeedback(`The answer you submited was incorrect ${submitedWord} wasn't the hidden word`)
+      setCorrectAnswer(isCorrect)
+      setAnswerFeedback(`The answer you submited was incorrect "${submitedWord}" wasn't the hidden word`)
+
 
       setTimeout(() => {
         setAnswerFeedback(laterFeedBack)
@@ -82,7 +87,7 @@ function App() {
       </a>
       <h1>Spelling exercises</h1>
       <RolePlay level={questionNumber} points={totalPoints} />
-      <ScreenResult feedbackMessage={ answerFeedback }/>
+      <ScreenResult feedbackMessage={answerFeedback} isCorrectAnswer={correctAnswer} level={questionNumber}/>
       <ReactAudioPlayer src={exerciseAudioUrl} controls />
 
       <div className='separator'>
