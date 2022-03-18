@@ -6,7 +6,7 @@ export const LetterPool = ({unorderedLetters}: LetterPoolProps) => {
 
     return (
 
-        <StyledLetterPool>
+        <StyledLetterPool tabIndex={0}>
       
             {unorderedLetters}?
             

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { handleError, handleResponse } from "./response";
 
-const getAll = async (apiUrl: string, endpoint: string) => { 
+const getAll = async (apiUrl: string, endpoint: string): Promise<any> => { 
     
   return await axios
                 .get(`${apiUrl}/${endpoint}`)
@@ -9,7 +9,7 @@ const getAll = async (apiUrl: string, endpoint: string) => {
                 .catch(handleError)
 }
 
-const post = async (apiUrl: string, endpoint: string, model: object) => { 
+const post = async (apiUrl: string, endpoint: string, model: object): Promise<any> => { 
   
   const headers = {'Content-Type': 'application/json'}
 

@@ -10,6 +10,6 @@ const SLANG_SERVICE = new ApiCore({
     endpoint: SLANG_TEST.endpoint
 })
   
-export const _getSlangServiceData = async () => await SERVICE_OBJECT.getAllData(SLANG_SERVICE)
+export const _getSlangServiceData = async (): Promise<any> => await SERVICE_OBJECT.getAllData(SLANG_SERVICE)
 
-export const _postSlangServiceData = async (userAnswer:object) => await SERVICE_OBJECT.post(SLANG_SERVICE, userAnswer)
+export const _postSlangServiceData = async (userAnswer:object): Promise<any> => await SERVICE_OBJECT.post(SLANG_SERVICE, userAnswer)

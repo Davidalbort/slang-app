@@ -5,10 +5,10 @@ export const ScreenResult = ({ feedbackMessage }: ScreenResultProps) => {
 
     return (
       
-        <StyledScreenResult>
+        <StyledScreenResult tabIndex={0}>
 
             <h2>Information</h2>
-            {feedbackMessage}
+            <p>{feedbackMessage}</p> 
 
         </StyledScreenResult>
         

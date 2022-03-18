@@ -7,8 +7,10 @@ export const InputSubmit = ({submitAnswer, setAnswer}: InputSubmitProps) => {
       
         <StyledInputSubmit>
         
-            <input type="text" placeholder='Type the word to find' onChange={event => setAnswer(event.target.value)}/>
-            <button onClick={submitAnswer}>Submit answer</button>
+            <input type="text" placeholder='Type the word to find' name="answer" aria-label="Word to find"
+                onChange={event => setAnswer(event.target.value)}/>
+                
+            <button onClick={submitAnswer} aria-labelledby="Submit answer">Submit answer</button>
             
         </StyledInputSubmit>
         

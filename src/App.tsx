@@ -17,7 +17,8 @@ function App() {
   const [exerciseId, setExerciseId] = useRecoilState<number>(exerciseIdState)
   const [exerciseLetterPool, setExerciseLetterPool] = useRecoilState<string[]>(exerciseLetterPoolState)
   const [answer, setAnswer] = useState<string>('')
-  const initialFeedBack = `* Play and listen the audio from below, then type the correct word, using the given letters`
+  const initialFeedBack = `• Play and listen the audio from below, then type the correct word, using the given letters`
+  const laterFeedBack = `• NEW WORD !!! Play and listen the audio from below, then type the correct word, using the given letters`
   const [answerFeedback, setAnswerFeedback] = useState<string>(initialFeedBack)
   const [questionNumber, setQuestionNumber] = useState<number>(1)
   const [totalPoints, setTotalPoints] = useState<number>(0)
@@ -44,7 +45,7 @@ function App() {
       setAnswerFeedback(`The answer you submited was correct ${submitedWord} was the hidden word`)
 
       setTimeout(() => {
-        setAnswerFeedback(initialFeedBack)
+        setAnswerFeedback(laterFeedBack)
         setTotalPoints(totalPoints + 500)
       }, 4000)
 
@@ -54,7 +55,7 @@ function App() {
       setAnswerFeedback(`The answer you submited was incorrect ${submitedWord} wasn't the hidden word`)
 
       setTimeout(() => {
-        setAnswerFeedback(initialFeedBack)
+        setAnswerFeedback(laterFeedBack)
         setTotalPoints(totalPoints + 200)
       }, 4000)
 
@@ -76,7 +77,10 @@ function App() {
 
     <StyledApp>
 
-      <a href="https://slangapp.com/"><img src={logo} alt='slang'/></a>
+      <a href="https://slangapp.com/" target="_blank" rel="noreferrer" aria-label="Go to slang website">
+        <img src={logo} alt='slang' tabIndex={0} />
+      </a>
+      <h1>Spelling exercises</h1>
       <RolePlay level={questionNumber} points={totalPoints} />
       <ScreenResult feedbackMessage={ answerFeedback }/>
       <ReactAudioPlayer src={exerciseAudioUrl} controls />

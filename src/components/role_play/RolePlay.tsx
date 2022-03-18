@@ -7,8 +7,8 @@ export const RolePlay = ({level, points}: RolePlayProps) => {
     
         <StyledRolePlay>
 
-            <div>Slang points: {points}</div>
-            <div>Current level: {level}</div>
+            <p tabIndex={0}>Slang points: {points}</p>
+            <p tabIndex={0}>Current level: {level}</p>
 
         </StyledRolePlay>
 
