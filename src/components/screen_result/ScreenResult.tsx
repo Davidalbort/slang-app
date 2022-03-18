@@ -1,10 +1,15 @@
 import { ScreenResultProps } from "../../constants/types/components_props/types"
+import { StyledScreenResult } from "./ScreenResult.style"
 
 export const ScreenResult = ({ feedbackMessage }: ScreenResultProps) => {
 
     return (
       
-        <div>{feedbackMessage}</div>
+        <StyledScreenResult>
+
+            {feedbackMessage}
+
+        </StyledScreenResult>
         
     )
     

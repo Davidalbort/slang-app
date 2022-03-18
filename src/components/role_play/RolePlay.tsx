@@ -1,15 +1,16 @@
 import { RolePlayProps } from "../../constants/types/components_props/types"
+import { StyledRolePlay } from "./RolePlay.style"
 
 export const RolePlay = ({level, points}: RolePlayProps) => {
 
     return (
     
-        <div>
+        <StyledRolePlay>
 
-            <div>Total points earned: {points}</div>
+            <div>Slang points: {points}</div>
             <div>Current level: {level}</div>
 
-        </div>
+        </StyledRolePlay>
 
     )
     

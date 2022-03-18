@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import './App.css';
 import { InputSubmit } from './components/input_submit/InputSubmit';
 import { LetterPool } from './components/letter_pool/LetterPool';
 import { RolePlay } from './components/role_play/RolePlay';
@@ -8,6 +7,8 @@ import { ScreenResult } from './components/screen_result/ScreenResult';
 import { exerciseAudioUrlState, exerciseDataState, exerciseIdState, exerciseLetterPoolState } from './recoil/atoms/exercise-data';
 import { _getSlangServiceData, _postSlangServiceData } from './services/slang.service';
 import ReactAudioPlayer from 'react-audio-player';
+import { StyledApp } from './App.style';
+import logo from '../src/assets/images/Logo.png'
 
 function App() {
 
@@ -41,10 +42,12 @@ function App() {
     if (isCorrect) {
       setTotalPoints(totalPoints + 500)
       setAnswerFeedback(`The answer you submited was correct ${submitedWord} was the hidden word`)
+      setTimeout(() => {setAnswerFeedback(initialFeedBack)}, 4000)
     }
     else {
       setTotalPoints(totalPoints + 200)
       setAnswerFeedback(`The answer you submited was incorrect ${submitedWord} wasn't the hidden word`)
+      setTimeout(() => {setAnswerFeedback(initialFeedBack)}, 4000)
     }
 
   }
@@ -62,16 +65,19 @@ function App() {
   
   return (
 
-    <div className="App">
+    <StyledApp>
 
+      <img src={logo} alt='slang' />
       <RolePlay level={questionNumber} points={totalPoints} />
       <ScreenResult feedbackMessage={ answerFeedback }/>
       <ReactAudioPlayer src={exerciseAudioUrl} controls />
-      <LetterPool unorderedLetters={ exerciseLetterPool }/>
-      <InputSubmit setAnswer={ setAnswer } submitAnswer={ submitAnswer }/>
-      
-    </div>
 
+      <div className='separator'>
+        <LetterPool unorderedLetters={ exerciseLetterPool }/>
+        <InputSubmit setAnswer={setAnswer} submitAnswer={submitAnswer} />
+      </div>  
+      
+    </StyledApp>
   )
   
 }
